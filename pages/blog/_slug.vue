@@ -82,6 +82,7 @@
     </div>
   </article>
 </template>
+
 <script>
 export default {
   async asyncData({ $content, params }) {
@@ -111,18 +112,22 @@ export default {
   }
 }
 </script>
+
 <style>
 .nuxt-content p {
   margin-bottom: 20px;
 }
+
 .nuxt-content h2 {
   font-weight: bold;
   font-size: 28px;
 }
+
 .nuxt-content h3 {
   font-weight: bold;
   font-size: 22px;
 }
+
 .icon.icon-link {
   background-image: url('~assets/svg/icon-hashtag.svg');
   display: inline-block;
