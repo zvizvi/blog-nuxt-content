@@ -73,17 +73,17 @@ export default {
     const articles = await $content('articles', params.slug)
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
-      .fetch()
+      .fetch();
     const tags = await $content('tags', params.slug)
       .only(['name', 'description', 'img', 'slug'])
       .sortBy('createdAt', 'asc')
-      .fetch()
+      .fetch();
     return {
       articles,
       tags
-    }
+    };
   }
-}
+};
 </script>
 
 <style class="postcss">

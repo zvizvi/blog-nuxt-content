@@ -73,16 +73,16 @@ export default {
       })
       .without('body')
       .sortBy('createdAt', 'asc')
-      .fetch()
+      .fetch();
     return {
       articles
-    }
+    };
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('en', options);
     }
   }
-}
+};
 </script>

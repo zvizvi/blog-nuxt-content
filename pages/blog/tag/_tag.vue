@@ -70,22 +70,22 @@ export default {
     const tags = await $content('tags')
       .where({ slug: { $contains: params.tag } })
       .limit(1)
-      .fetch()
-    const tag = tags.length > 0 ? tags[0] : {}
+      .fetch();
+    const tag = tags.length > 0 ? tags[0] : {};
     const articles = await $content('articles', params.slug)
       .where({ tags: { $contains: tag.name } })
       .sortBy('createdAt', 'asc')
-      .fetch()
+      .fetch();
     return {
       articles,
       tag
-    }
+    };
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('en', options);
     }
   }
-}
+};
 </script>
