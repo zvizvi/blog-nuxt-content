@@ -1,59 +1,70 @@
-/*
- ** TailwindCSS Configuration File
- **
- ** Docs: https://tailwindcss.com/docs/configuration
- ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
- */
 module.exports = {
+  purge: {
+    content: ['./src/**/*.js', './next.config.js']
+  },
   theme: {
     screens: {
       xs: '320px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      xl: '1280px',
-      xxlmin: '1351px',
-      xxlmax: { max: '1350px' }
+      xl: '1280px'
+    },
+    flex: {
+      1: '1 1 0%',
+      auto: '1 1 auto',
+      3: '3 3 0%'
     },
     fontFamily: {
       display: ['Quicksand', 'sans-serif'],
       body: ['Quicksand', 'sans-serif']
     },
-    borderWidth: {
-      default: '1px',
-      0: '0',
-      2: '2px',
-      4: '4px'
-    },
     extend: {
-      colors: {
-        cyan: '#9cdbff'
+      lineHeight: {
+        11: '2.75rem',
+        12: '3rem',
+        13: '3.25rem',
+        14: '3.5rem'
       },
-      spacing: {
-        96: '24rem',
-        128: '32rem'
-      },
-      height: {
-        84: '22rem'
-      },
-      width: {
-        '3/2': '150%',
-        '4/2': '200%',
-        '1/2-screen': '50vw'
-      },
-      margin: {
-        '-fullh': '-100vh'
-      }
-    },
-    inset: {
-      0: 0,
-      16: '16px',
-      32: '32px',
-      64: '64px',
-      '2rem': '2rem',
-      '3rem': '3rem'
+      typography: (theme) => ({
+        default: {
+          css: {
+            color: theme('colors.gray.700'),
+            h2: {
+              fontWeight: '700',
+              letterSpacing: theme('letterSpacing.tight'),
+              color: theme('colors.gray.900')
+            },
+            h3: {
+              fontWeight: '600',
+              color: theme('colors.gray.900')
+            },
+            'ol li:before': {
+              fontWeight: '600',
+              color: theme('colors.gray.500')
+            },
+            'ul li:before': {
+              backgroundColor: theme('colors.gray.400')
+            },
+            code: {
+              color: theme('colors.gray.900')
+            },
+            a: {
+              color: theme('colors.gray.900')
+            },
+            pre: {
+              color: theme('colors.gray.200'),
+              backgroundColor: theme('colors.gray.800')
+            },
+            blockquote: {
+              color: theme('colors.gray.900'),
+              borderLeftColor: theme('colors.gray.200')
+            }
+          }
+        }
+      })
     }
   },
   variants: {},
-  plugins: []
+  plugins: [require('@tailwindcss/ui'), require('@tailwindcss/typography')]
 };
