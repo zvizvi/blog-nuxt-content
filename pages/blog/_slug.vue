@@ -4,21 +4,11 @@
     <div class="max-w-3xl mx-auto px-6 xl:max-w-5xl lg:px-0">
       <main>
         <article>
-          <header class="pt-6 xl:pb-10">
-            <div class="space-y-1 text-center">
-              <dl class="space-y-10">
-                <div>
-                  <dt class="sr-only">Published on</dt>
-                  <dd class="text-base leading-6 font-medium text-gray-500">
-                    <time :datetime="formatDate(article.updatedAt)">{{
-                      formatDate(article.updatedAt)
-                    }}</time>
-                  </dd>
-                </div>
-              </dl>
+          <header class="pt-6 xl:pb-8">
+            <div class="text-center">
               <div>
                 <h1
-                  class="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+                  class="text-3xl leading-9 font-bold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
                 >
                   {{ article.title }}
                 </h1>
@@ -26,7 +16,11 @@
               </div>
             </div>
           </header>
-          <author :author="article.author" class="xl:hidden pt-6 pb-10" />
+          <author
+            :author="article.author"
+            :updated-at="article.updatedAt"
+            class="xl:hidden pt-6 pb-10"
+          />
           <div class="xl:flex flex-row-reverse pb-16 xl:pb-20">
             <!-- content author component -->
             <div class="flex-3 divide-y divide-gray-200 xl:pb-0">
@@ -46,6 +40,7 @@
               <div class="xl:sticky top-20 divide-y divide-gray-200">
                 <author
                   :author="article.author"
+                  :updated-at="article.updatedAt"
                   class="hidden xl:block pt-6 pb-10 xl:pt-6"
                 />
                 <!-- <AppSearchInput /> -->
@@ -120,12 +115,6 @@ export default {
       prev,
       next
     };
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(date).toLocaleDateString('en', options);
-    }
   }
 };
 </script>

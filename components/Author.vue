@@ -3,20 +3,28 @@
     <dt class="sr-only">Authors</dt>
     <dd>
       <ul
-        class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-4"
+        class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-6"
       >
-        <li class="flex items-center space-x-2">
-          <img
-            v-if="author.img"
-            :src="author.img"
-            class="w-10 h-10 rounded-full"
-          />
+        <li class="flex items-center space-x-3">
+          <NuxtLink :to="`/blog/author/${author.name}`">
+            <img
+              v-if="author.img"
+              :src="author.img"
+              class="w-10 h-10 rounded-full"
+            />
+          </NuxtLink>
           <dl class="text-sm font-medium leading-5 whitespace-no-wrap">
             <dt class="sr-only">Name</dt>
             <dd class="text-gray-900">
               <NuxtLink :to="`/blog/author/${author.name}`"
                 >{{ author.name }}
               </NuxtLink>
+            </dd>
+            <dt class="sr-only">Published on</dt>
+            <dd v-if="updatedAt" class="font-normal text-gray-600 text-sm">
+              <time :datetime="formatDate(updatedAt, true)">{{
+                formatDate(updatedAt)
+              }}</time>
             </dd>
             <dt class="sr-only">Twitter</dt>
             <dd>
@@ -43,6 +51,19 @@ export default {
     author: {
       type: Object,
       required: true
+    },
+    updatedAt: {
+      type: String,
+      default: undefined
+    }
+  },
+  methods: {
+    formatDate(date, iso) {
+      if (iso) {
+        return new Date(date).toISOString();
+      }
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('en', options);
     }
   }
 };

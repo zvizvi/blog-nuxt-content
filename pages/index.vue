@@ -18,12 +18,27 @@
               :src="article.img"
             />
 
-            <div class="p-6 flex-1">
-              <h2 class="font-bold">{{ article.title }}</h2>
-              <p>by {{ article.author.name }}</p>
-              <p class="font-bold text-gray-600 text-sm">
-                {{ article.description }}
-              </p>
+            <div class="p-6 flex-1 flex flex-col">
+              <h2 class="text-lg font-semibold">{{ article.title }}</h2>
+              <p class="text-gray-600 text-sm">{{ article.description }}</p>
+
+              <span class="flex mt-auto pt-6 items-center space-x-3">
+                <img
+                  v-if="article.author.img"
+                  :src="article.author.img"
+                  class="w-8 h-8 rounded-full"
+                />
+                <div class="flex flex-col">
+                  <span
+                    class="text-sm font-medium text-gray-900 leading-5 whitespace-no-wrap"
+                  >
+                    {{ article.author.name }}
+                  </span>
+                  <span class="text-gray-600 text-xs">{{
+                    formatDate(article.updatedAt)
+                  }}</span>
+                </div>
+              </span>
             </div>
           </NuxtLink>
         </li>
@@ -69,7 +84,7 @@
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content('articles', params.slug)
-      .only(['title', 'description', 'img', 'slug', 'author'])
+      .only(['title', 'description', 'updatedAt', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
       .fetch();
     const tags = await $content('tags', params.slug)
@@ -80,6 +95,12 @@ export default {
       articles,
       tags
     };
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('en', options);
+    }
   }
 };
 </script>
