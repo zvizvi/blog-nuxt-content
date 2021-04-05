@@ -5,8 +5,15 @@
       <div class="flex flex-col">
         <div class="relative pb-6">
           <NuxtLink to="/"
-            ><p class="hover:underline">
-              <span>←</span> Back to All Articles
+            ><p class="hover:underline flex items-center space-x-2">
+              <span
+                ><svg viewBox="0 0 6 4" class="w-3 transform rotate-180">
+                  <polygon
+                    fill="currentColor"
+                    points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"
+                  ></polygon></svg
+              ></span>
+              <span>Back to All Articles</span>
             </p></NuxtLink
           >
           <h1 class="text-4xl py-4 font-bold uppercase">
