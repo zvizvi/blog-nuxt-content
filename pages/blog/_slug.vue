@@ -89,6 +89,7 @@
         </li>
       </ul>
     </nav> -->
+    <TheFooter />
   </div>
 </template>
 
