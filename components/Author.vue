@@ -6,7 +6,7 @@
         class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-6"
       >
         <li class="flex items-center space-x-3">
-          <NuxtLink :to="`/blog/author/${author.name}`">
+          <NuxtLink :to="`/author/${author.name}`">
             <img
               v-if="author.img"
               :src="author.img"
@@ -16,7 +16,7 @@
           <dl class="text-sm font-medium leading-5 whitespace-no-wrap">
             <dt class="sr-only">Name</dt>
             <dd class="text-gray-900">
-              <NuxtLink :to="`/blog/author/${author.name}`"
+              <NuxtLink :to="`/author/${author.name}`"
                 >{{ author.name }}
               </NuxtLink>
             </dd>

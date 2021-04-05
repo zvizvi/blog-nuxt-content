@@ -15,7 +15,7 @@
       </h2>
       <div class="text-teal-500 hover:text-teal-600">
         <NuxtLink
-          :to="{ name: 'blog-slug', params: { slug: next.slug } }"
+          :to="{ name: 'slug', params: { slug: next.slug } }"
           class="font-bold hover:underline"
         >
           {{ next.title }}
@@ -38,7 +38,7 @@
       </h2>
       <div class="text-teal-500 hover:text-teal-600">
         <NuxtLink
-          :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
+          :to="{ name: 'slug', params: { slug: prev.slug } }"
           class="text-primary font-bold hover:underline"
         >
           {{ prev.title }}

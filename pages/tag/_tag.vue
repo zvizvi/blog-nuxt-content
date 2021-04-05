@@ -32,7 +32,7 @@
           class="article-card overflow-hidden border border-gray-200 rounded-md shadow-sm hover:shadow-md transition-shadow duration-150 ease-in-out"
         >
           <NuxtLink
-            :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+            :to="{ name: 'slug', params: { slug: article.slug } }"
             class="flex flex-col h-full"
           >
             <img

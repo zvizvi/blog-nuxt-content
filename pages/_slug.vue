@@ -50,16 +50,14 @@
                     :key="id"
                     class="text-xs inline-block mr-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
                   >
-                    <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">{{
+                    <NuxtLink :to="`/tag/${tags[tag].slug}`">{{
                       tags[tag].name
                     }}</NuxtLink>
                   </span>
                 </div>
                 <div class="pt-8">
-                  <footer>
-                    <!-- prevNext component -->
-                    <PrevNext :prev="prev" :next="next" class="" />
-                  </footer>
+                  <!-- prevNext component -->
+                  <PrevNext :prev="prev" :next="next" class="" />
                 </div>
               </div>
             </footer>
