@@ -1,61 +1,60 @@
 <template>
-  <div
-    class="flex lg:h-screen w-screen lg:overflow-hidden xs:flex-col lg:flex-row"
-  >
-    <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
-      <img
-        :src="tag.img"
-        :alt="tag.name"
-        class="absolute h-full w-full object-cover"
-      />
-    </div>
-
-    <div class="overlay"></div>
-    <div class="absolute top-32 left-32 right-32 text-white">
-      <NuxtLink to="/"><Logo /></NuxtLink>
-      <div class="mt-16 -mb-3 flex flex-col text-sm">
-        <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
-          <h1 class="text-4xl font-bold uppercase">
+  <div>
+    <TheHeader />
+    <div class="tag-page max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8">
+      <div class="flex flex-col">
+        <div class="relative pb-6">
+          <NuxtLink to="/"
+            ><p class="hover:underline">
+              <span>←</span> Back to All Articles
+            </p></NuxtLink
+          >
+          <h1 class="text-4xl py-4 font-bold uppercase">
             {{ tag.name }}
           </h1>
-          <p class="mb-4 uppercase">{{ tag.description }}</p>
+          <p class="mb-4">{{ tag.description }}</p>
 
           <nuxt-content :document="tag" />
         </div>
       </div>
-    </div>
-    <div
-      class="relative xs:py-8 xs:px-8 lg:py-32 lg:px-16 lg:w-1/2 xs:w-full h-full overflow-y-scroll markdown-body post-right custom-scroll"
-    >
-      <NuxtLink to="/"
-        ><p class="hover:underline">Back to All Articles</p></NuxtLink
-      >
-      <h3 class="mb-4 font-bold text-4xl">Articles tagged {{ tag.name }}:</h3>
-      <ul>
+
+      <ul class="grid grid-cols-6 gap-5">
         <li
-          v-for="article in articles"
+          v-for="article of articles"
           :key="article.slug"
-          class="w-full px-2 xs:mb-6 md:mb-12 article-card"
+          class="article-card overflow-hidden border border-gray-200 rounded-md shadow-sm hover:shadow-md transition-shadow duration-150 ease-in-out"
         >
           <NuxtLink
             :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-            class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
+            class="flex flex-col h-full"
           >
             <img
               v-if="article.img"
-              class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
+              class="h-48 object-cover rounded-t-md"
               :src="article.img"
-              :alt="article.alt"
             />
 
-            <div
-              class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
-            >
-              <h2 class="font-bold">{{ article.title }}</h2>
-              <p>{{ article.description }}</p>
-              <p class="font-bold text-gray-600 text-sm">
-                {{ formatDate(article.updatedAt) }}
-              </p>
+            <div class="p-6 flex-1 flex flex-col">
+              <h2 class="text-lg font-semibold">{{ article.title }}</h2>
+              <p class="text-gray-600 text-sm">{{ article.description }}</p>
+
+              <span class="flex mt-auto pt-6 items-center space-x-3">
+                <img
+                  v-if="article.author.img"
+                  :src="article.author.img"
+                  class="w-8 h-8 rounded-full object-cover"
+                />
+                <div class="flex flex-col">
+                  <span
+                    class="text-sm font-medium text-gray-900 leading-5 whitespace-no-wrap"
+                  >
+                    {{ article.author.name }}
+                  </span>
+                  <span class="text-gray-600 text-xs">{{
+                    formatDate(article.updatedAt)
+                  }}</span>
+                </div>
+              </span>
             </div>
           </NuxtLink>
         </li>
@@ -89,3 +88,13 @@ export default {
   }
 };
 </script>
+
+<style lang="postcss" scoped>
+.tag-page .article-card {
+  grid-column: span 6;
+
+  @media (min-width: 640px) {
+    grid-column: span 3;
+  }
+}
+</style>

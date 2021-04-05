@@ -1,35 +1,33 @@
 <template>
   <div class="space-y-8">
-    <div>
+    <div v-if="next">
       <h2 class="text-xs tracking-wide uppercase text-gray-500">
-        Next Article
+        Next Article <span>→</span>
       </h2>
       <div class="text-teal-500 hover:text-teal-600">
         <NuxtLink
-          v-if="next"
           :to="{ name: 'blog-slug', params: { slug: next.slug } }"
           class="font-bold hover:underline"
         >
           {{ next.title }}
         </NuxtLink>
-        <span v-else>&nbsp;</span>
       </div>
     </div>
-    <div>
+    <span v-else>&nbsp;</span>
+    <div v-if="prev">
       <h2 class="text-xs tracking-wide uppercase text-gray-500">
-        Previous Article
+        Previous Article <span>←</span>
       </h2>
       <div class="text-teal-500 hover:text-teal-600">
         <NuxtLink
-          v-if="prev"
           :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
           class="text-primary font-bold hover:underline"
         >
           {{ prev.title }}
         </NuxtLink>
-        <span v-else>&nbsp;</span>
       </div>
     </div>
+    <span v-else>&nbsp;</span>
   </div>
 </template>
 

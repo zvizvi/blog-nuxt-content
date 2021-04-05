@@ -1,59 +1,67 @@
 <template>
-  <div
-    class="flex lg:h-screen w-screen lg:overflow-hidden xs:flex-col lg:flex-row"
-  >
-    <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
-      <img
-        :src="articles[0].author.img"
-        :alt="articles[0].author.name"
-        class="absolute h-full w-full object-cover"
-      />
-    </div>
-
-    <div class="overlay"></div>
-    <div class="absolute top-32 left-32 text-white">
-      <NuxtLink to="/"><Logo /></NuxtLink>
-      <div class="mt-16 -mb-3 flex flex-col uppercase text-sm">
-        <h1 class="text-4xl font-bold">
-          {{ articles[0].author.name }}
-        </h1>
-        <p class="mb-4">{{ articles[0].author.bio }}</p>
+  <div>
+    <TheHeader />
+    <div class="author-page max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8">
+      <div class="pb-6">
+        <NuxtLink to="/"
+          ><p class="hover:underline">
+            <span>←</span> Back to All Articles
+          </p></NuxtLink
+        >
+        <div class="flex py-6 space-x-6 items-center">
+          <img
+            :src="articles[0].author.img"
+            :alt="articles[0].author.name"
+            class="w-36 h-36 rounded-full object-cover"
+          />
+          <div class="flex flex-col">
+            <h1 class="text-4xl py-4 font-bold uppercase">
+              {{ articles[0].author.name }}
+            </h1>
+            <p class="mb-4">{{ articles[0].author.bio }}</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      class="relative xs:py-8 xs:px-8 lg:py-32 lg:px-16 lg:w-1/2 xs:w-full h-full overflow-y-scroll markdown-body post-right custom-scroll"
-    >
-      <NuxtLink to="/"
-        ><p class="hover:underline">Back to All Articles</p></NuxtLink
-      >
-      <h3 class="mb-4 font-bold text-4xl">
-        Here are a list of articles by {{ articles[0].author.name }}:
-      </h3>
-      <ul>
+
+      <ul class="grid grid-cols-6 gap-5">
         <li
-          v-for="article in articles"
+          v-for="article of articles"
           :key="article.slug"
-          class="w-full px-2 xs:mb-6 md:mb-12 article-card"
+          class="article-card overflow-hidden border border-gray-200 rounded-md shadow-sm hover:shadow-md transition-shadow duration-150 ease-in-out"
         >
           <NuxtLink
             :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-            class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
+            class="flex flex-col h-full"
           >
             <img
               v-if="article.img"
-              class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
+              class="h-48 object-cover rounded-t-md"
               :src="article.img"
-              :alt="article.alt"
             />
 
-            <div
-              class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
-            >
-              <h2 class="font-bold">{{ article.title }}</h2>
-              <p>{{ article.description }}</p>
-              <p class="font-bold text-gray-600 text-sm">
-                {{ formatDate(article.updatedAt) }}
+            <div class="p-6 flex-1 flex flex-col">
+              <h2 class="text-lg font-semibold">{{ article.title }}</h2>
+              <p class="text-gray-600 text-sm">
+                {{ article.description }}
               </p>
+
+              <span class="flex mt-auto pt-6 items-center space-x-3">
+                <img
+                  v-if="article.author.img"
+                  :src="article.author.img"
+                  class="w-8 h-8 rounded-full object-cover"
+                />
+                <div class="flex flex-col">
+                  <span
+                    class="text-sm font-medium text-gray-900 leading-5 whitespace-no-wrap"
+                  >
+                    {{ article.author.name }}
+                  </span>
+                  <span class="text-gray-600 text-xs">{{
+                    formatDate(article.updatedAt)
+                  }}</span>
+                </div>
+              </span>
             </div>
           </NuxtLink>
         </li>
@@ -86,3 +94,13 @@ export default {
   }
 };
 </script>
+
+<style lang="postcss" scoped>
+.author-page .article-card {
+  grid-column: span 6;
+
+  @media (min-width: 640px) {
+    grid-column: span 3;
+  }
+}
+</style>

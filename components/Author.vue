@@ -10,7 +10,7 @@
             <img
               v-if="author.img"
               :src="author.img"
-              class="w-10 h-10 rounded-full"
+              class="w-10 h-10 rounded-full object-cover"
             />
           </NuxtLink>
           <dl class="text-sm font-medium leading-5 whitespace-no-wrap">

@@ -19,7 +19,7 @@
           <author
             :author="article.author"
             :updated-at="article.updatedAt"
-            class="xl:hidden pt-6 pb-10"
+            class="xl:hidden pt-6 pb-1"
           />
           <div class="xl:flex flex-row-reverse pb-16 xl:pb-20">
             <!-- content author component -->
@@ -44,7 +44,7 @@
                   class="hidden xl:block pt-6 pb-10 xl:pt-6"
                 />
                 <!-- <AppSearchInput /> -->
-                <div class="py-8">
+                <div v-if="article.tags" class="py-8">
                   <span
                     v-for="(tag, id) in article.tags"
                     :key="id"
@@ -56,14 +56,11 @@
                   </span>
                 </div>
                 <div class="pt-8">
-                  <!-- prevNext component -->
-                  <PrevNext :prev="prev" :next="next" class="" />
+                  <footer>
+                    <!-- prevNext component -->
+                    <PrevNext :prev="prev" :next="next" class="" />
+                  </footer>
                 </div>
-                <!-- <div class="pt-8">
-                <a class="text-teal-500 hover:text-teal-600" href="/"
-                  >← Back to the blog</a
-                >
-              </div> -->
               </div>
             </footer>
           </div>

@@ -26,7 +26,7 @@
                 <img
                   v-if="article.author.img"
                   :src="article.author.img"
-                  class="w-8 h-8 rounded-full"
+                  class="w-8 h-8 rounded-full object-cover"
                 />
                 <div class="flex flex-col">
                   <span
