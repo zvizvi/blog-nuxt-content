@@ -65,10 +65,13 @@ module.exports = {
       })
     }
   },
-  variants: {},
+  variants: {
+    rotate: ['responsive', 'direction']
+  },
   plugins: [
     require('@tailwindcss/ui'),
     require('@tailwindcss/typography'),
-    require('tailwindcss-rtl')
+    require('tailwindcss-rtl'),
+    require('tailwindcss-dir')()
   ]
 };
