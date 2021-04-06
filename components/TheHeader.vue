@@ -16,7 +16,7 @@
         >
       </div>
     </header>
-    <!-- <AppSearchInput class="ml-8" /> -->
+    <!-- <AppSearchInput class="ms-8" /> -->
   </div>
 </template>
 

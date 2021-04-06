@@ -2,11 +2,11 @@
   <div class="space-y-8">
     <div v-if="next">
       <h2
-        class="text-xs tracking-wide uppercase text-gray-500 flex items-center space-x-2"
+        class="text-xs tracking-wide uppercase text-gray-500 flex items-center space-s-2"
       >
         <span>Next Article</span>
         <span
-          ><svg viewBox="0 0 6 4" class="w-3">
+          ><svg viewBox="0 0 6 4" class="w-3 transform rtl:rotate-180">
             <polygon
               fill="currentColor"
               points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"
@@ -25,11 +25,11 @@
     <span v-else>&nbsp;</span>
     <div v-if="prev">
       <h2
-        class="text-xs tracking-wide uppercase text-gray-500 flex items-center space-x-2"
+        class="text-xs tracking-wide uppercase text-gray-500 flex items-center space-s-2"
       >
         <span>Previous Article</span>
         <span
-          ><svg viewBox="0 0 6 4" class="w-3 transform rotate-180">
+          ><svg viewBox="0 0 6 4" class="w-3 transform rotate-180 rtl:rotate-0">
             <polygon
               fill="currentColor"
               points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"

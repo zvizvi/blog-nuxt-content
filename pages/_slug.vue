@@ -36,7 +36,7 @@
                 <nuxt-content :document="article" />
               </div>
             </div>
-            <footer class="flex-1 text-sm font-medium xl:mr-6 leading-5">
+            <footer class="flex-1 text-sm font-medium xl:me-6 leading-5">
               <div class="xl:sticky top-20 divide-y divide-gray-200">
                 <author
                   :author="article.author"
@@ -48,7 +48,7 @@
                   <span
                     v-for="(tag, id) in article.tags"
                     :key="id"
-                    class="text-xs inline-block mr-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
+                    class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
                   >
                     <NuxtLink :to="`/tag/${tags[tag].slug}`">{{
                       tags[tag].name
@@ -80,7 +80,7 @@
             class="hover:underline"
             :class="{
               'py-2': link.depth === 2,
-              'ml-2 pb-2': link.depth === 3
+              'ms-2 pb-2': link.depth === 3
             }"
             >{{ link.text }}</nuxtLink
           >

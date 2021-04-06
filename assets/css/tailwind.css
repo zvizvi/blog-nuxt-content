@@ -2,10 +2,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.ltr {
+  direction: ltr;
+}
+
+.rtl {
+  direction: rtl;
+}
+
 .nuxt-content-highlight {
-  @apply relative;
+  @apply relative ltr;
 }
 
 .nuxt-content-highlight .filename {
-  @apply absolute right-0 text-gray-600 font-light z-10 mr-2 mt-1 text-sm;
+  @apply absolute right-0 text-gray-200 font-light z-10 mr-2 mt-1 text-sm;
 }

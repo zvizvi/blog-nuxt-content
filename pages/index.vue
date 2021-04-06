@@ -22,7 +22,7 @@
               <h2 class="text-lg font-semibold">{{ article.title }}</h2>
               <p class="text-gray-600 text-sm">{{ article.description }}</p>
 
-              <span class="flex mt-auto pt-6 items-center space-x-3">
+              <span class="flex mt-auto pt-6 items-center space-s-3">
                 <img
                   v-if="article.author.img"
                   :src="article.author.img"
@@ -51,7 +51,7 @@
         >
           <NuxtLink :to="`/tag/${tag.slug}`" class="">
             <span
-              class="text-xs inline-block mr-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
+              class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
               >{{ tag.name }}</span
             >
           </NuxtLink>

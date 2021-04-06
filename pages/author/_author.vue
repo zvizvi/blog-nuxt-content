@@ -4,9 +4,12 @@
     <div class="author-page max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8">
       <div class="pb-6">
         <NuxtLink to="/"
-          ><p class="hover:underline flex items-center space-x-2">
+          ><p class="hover:underline flex items-center space-s-2">
             <span
-              ><svg viewBox="0 0 6 4" class="w-3 transform rotate-180">
+              ><svg
+                viewBox="0 0 6 4"
+                class="w-3 transform rotate-180 rtl:rotate-0"
+              >
                 <polygon
                   fill="currentColor"
                   points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"
@@ -15,7 +18,7 @@
             <span>Back to All Articles</span>
           </p></NuxtLink
         >
-        <div class="flex py-6 space-x-6 items-center">
+        <div class="flex py-6 space-s-6 items-center">
           <img
             :src="articles[0].author.img"
             :alt="articles[0].author.name"
@@ -52,7 +55,7 @@
                 {{ article.description }}
               </p>
 
-              <span class="flex mt-auto pt-6 items-center space-x-3">
+              <span class="flex mt-auto pt-6 items-center space-s-3">
                 <img
                   v-if="article.author.img"
                   :src="article.author.img"
