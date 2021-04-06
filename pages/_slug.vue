@@ -33,7 +33,7 @@
                   />
                   <figcaption class="italic text-center"></figcaption>
                 </figure>
-                <nuxt-content :document="article" />
+                <nuxt-content class="text-justify" :document="article" />
               </div>
             </div>
             <footer class="flex-1 text-sm font-medium xl:me-6 leading-5">
