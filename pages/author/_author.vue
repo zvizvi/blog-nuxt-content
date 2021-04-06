@@ -1,10 +1,15 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screen">
     <TheHeader />
-    <div class="author-page max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8">
+    <div
+      class="author-page flex-1 w-full max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8 xl:pb-20"
+    >
       <div class="pb-6">
-        <NuxtLink to="/"
-          ><p class="hover:underline flex items-center space-s-2">
+        <p>
+          <NuxtLink
+            to="/"
+            class="hover:underline inline-flex items-center space-s-2"
+          >
             <span
               ><svg
                 viewBox="0 0 6 4"
@@ -16,8 +21,8 @@
                 ></polygon></svg
             ></span>
             <span>Back to All Articles</span>
-          </p></NuxtLink
-        >
+          </NuxtLink>
+        </p>
         <div class="flex py-6 space-s-6 items-center">
           <img
             :src="author.img"

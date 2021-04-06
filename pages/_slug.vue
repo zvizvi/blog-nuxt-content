@@ -1,7 +1,7 @@
 <template>
-  <div class="antialiased">
+  <div class="antialiased flex flex-col min-h-screen">
     <TheHeader />
-    <div class="max-w-3xl mx-auto px-6 xl:max-w-5xl lg:px-0">
+    <div class="flex-1 w-full max-w-3xl mx-auto px-6 xl:max-w-5xl lg:px-0">
       <main>
         <article>
           <header class="pt-6 xl:pb-8">
@@ -127,7 +127,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .nuxt-content {
   h1,
   h2,

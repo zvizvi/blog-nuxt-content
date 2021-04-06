@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screen">
     <TheHeader />
-    <div class="max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8">
+    <div class="flex-1 w-full max-w-3xl xl:max-w-5xl mx-auto px-4 lg:px-0 py-8">
       <ul class="grid grid-cols-6 gap-5">
         <li
           v-for="article of articles"

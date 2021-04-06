@@ -1,6 +1,8 @@
 <template>
-  <div class="space-y-8">
-    <div v-if="next">
+  <div
+    class="block sm:flex xl:block flex-row-reverse flex-wrap justify-between"
+  >
+    <div v-if="next" class="mb-8">
       <h2
         class="text-xs tracking-wide uppercase text-gray-500 flex items-center space-s-2"
       >
@@ -16,19 +18,17 @@
       <div class="text-teal-500 hover:text-teal-600">
         <NuxtLink
           :to="{ name: 'slug', params: { slug: next.slug } }"
-          class="font-bold hover:underline"
+          class="text-primary font-bold hover:underline"
+          >{{ next.title }}</NuxtLink
         >
-          {{ next.title }}
-        </NuxtLink>
       </div>
     </div>
-    <span v-else>&nbsp;</span>
     <div v-if="prev">
       <h2
-        class="text-xs tracking-wide uppercase text-gray-500 flex items-center space-s-2"
+        class="text-xs tracking-wide uppercase text-gray-500 flex flex-row sm:flex-row-reverse xl:flex-row items-center"
       >
         <span>Previous Article</span>
-        <span
+        <span class="me-0 ms-2 sm:me-2 sm:ms-0 xl:me-0 xl:ms-2"
           ><svg viewBox="0 0 6 4" class="w-3 transform rotate-180 rtl:rotate-0">
             <polygon
               fill="currentColor"
@@ -39,13 +39,11 @@
       <div class="text-teal-500 hover:text-teal-600">
         <NuxtLink
           :to="{ name: 'slug', params: { slug: prev.slug } }"
-          class="text-primary font-bold hover:underline"
+          class="font-bold hover:underline"
+          >{{ prev.title }}</NuxtLink
         >
-          {{ prev.title }}
-        </NuxtLink>
       </div>
     </div>
-    <span v-else>&nbsp;</span>
   </div>
 </template>
 
