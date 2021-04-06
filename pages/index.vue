@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .article-card {
   grid-column: span 6;
 

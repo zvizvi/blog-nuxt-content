@@ -20,15 +20,15 @@
         >
         <div class="flex py-6 space-s-6 items-center">
           <img
-            :src="articles[0].author.img"
-            :alt="articles[0].author.name"
+            :src="author.img"
+            :alt="author.name"
             class="w-36 h-36 rounded-full object-cover"
           />
           <div class="flex flex-col">
             <h1 class="text-4xl py-4 font-bold uppercase">
-              {{ articles[0].author.name }}
+              {{ author.name }}
             </h1>
-            <p class="mb-4">{{ articles[0].author.bio }}</p>
+            <p class="mb-4">{{ author.bio }}</p>
           </div>
         </div>
       </div>
@@ -93,8 +93,22 @@ export default {
       .without('body')
       .sortBy('createdAt', 'asc')
       .fetch();
+    const author = articles?.[0]?.author;
     return {
-      articles
+      articles,
+      author
+    };
+  },
+  head() {
+    return {
+      title: ` / Authors / ${this.author?.name}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.author?.bio
+        }
+      ]
     };
   },
   methods: {

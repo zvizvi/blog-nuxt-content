@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import { upperFirst } from 'lodash';
+
 export default {
   async asyncData({ $content, params }) {
     const tags = await $content('tags')
@@ -89,6 +91,18 @@ export default {
     return {
       articles,
       tag
+    };
+  },
+  head() {
+    return {
+      title: ` / Tags / ${upperFirst(this.tag?.name)}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.tag?.description
+        }
+      ]
     };
   },
   methods: {
