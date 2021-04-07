@@ -10,6 +10,8 @@ author:
 tags:
   - nuxtjs
   - web development
+createdAt: 2021-01-10T10:58:51.640Z
+updatedAt: 2021-01-10T10:59:27.863Z
 ---
 
 ## what do you know and what do we not know

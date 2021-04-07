@@ -9,6 +9,8 @@ author:
   img: https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80
 tags:
   - web development
+createdAt: 2021-01-01T10:58:51.640Z
+updatedAt: 2021-01-01T10:59:27.863Z
 ---
 
 ## There is just so much to write about me. Where do I start?

@@ -10,6 +10,8 @@ author:
 tags:
   - javascript
   - web development
+createdAt: 2021-01-07T10:58:51.640Z
+updatedAt: 2021-01-07T10:59:27.863Z
 ---
 
 ## Welcome to my third blog post using content module

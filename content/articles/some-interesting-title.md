@@ -10,6 +10,8 @@ author:
 tags:
   - nuxtjs
   - web development
+createdAt: 2021-01-08T10:58:51.640Z
+updatedAt: 2021-01-08T10:59:27.863Z
 ---
 
 ## Welcome to another blog post using content module

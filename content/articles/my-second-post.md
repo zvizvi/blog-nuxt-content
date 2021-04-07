@@ -9,6 +9,8 @@ author:
   img: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2551&q=80
 tags:
   - nuxtjs
+createdAt: 2021-01-06T10:58:51.640Z
+updatedAt: 2021-01-06T10:59:27.863Z
 ---
 
 ## Welcome to my second blog post using content module
