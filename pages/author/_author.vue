@@ -138,6 +138,11 @@ export default {
 
   @media (min-width: 640px) {
     grid-column: span 3;
+
+    /* full width for the last post */
+    &:nth-child(2n -1):last-child {
+      grid-column: span 6;
+    }
   }
 }
 </style>
