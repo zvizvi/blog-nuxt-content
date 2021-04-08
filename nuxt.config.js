@@ -51,7 +51,8 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/markdownit'
   ],
   /*
    ** Content module configuration
@@ -64,6 +65,9 @@ export default {
       }
     },
     nestedProperties: ['author.name']
+  },
+  markdownit: {
+    runtime: true // Support `$md()`
   },
   /*
    ** Build configuration

@@ -34,6 +34,13 @@
               {{ author.name }}
             </h1>
             <p class="mb-4">{{ author.bio }}</p>
+            <!-- eslint-disable -->
+            <p
+              v-if="author.signature"
+              class="mb-4 text-sm p-1 border-t border-gray-300"
+              v-html="$md.render(author.signature)"
+            ></p>
+            <!-- eslint-enable -->
           </div>
         </div>
       </div>
