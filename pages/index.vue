@@ -22,7 +22,10 @@
               <h2 class="text-lg font-semibold">{{ article.title }}</h2>
               <p class="text-gray-600 text-sm">{{ article.description }}</p>
 
-              <span class="flex mt-auto pt-6 items-center space-s-3">
+              <span
+                v-if="article.author"
+                class="flex mt-auto pt-6 items-center space-s-3"
+              >
                 <img
                   v-if="article.author.img"
                   :src="article.author.img"

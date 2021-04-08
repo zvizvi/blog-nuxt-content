@@ -95,10 +95,12 @@
 export default {
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch();
-    const tagsList = await $content('tags')
-      .only(['name', 'slug'])
-      .where({ name: { $containsAny: article.tags } })
-      .fetch();
+    const tagsList = article.tags
+      ? await $content('tags')
+          .only(['name', 'slug'])
+          .where({ name: { $containsAny: article.tags } })
+          .fetch()
+      : [];
     const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })));
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])

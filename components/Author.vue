@@ -6,7 +6,7 @@
         class="flex justify-center xl:block space-s-8 sm:space-s-12 xl:space-s-0 xl:space-y-6"
       >
         <li class="flex items-center space-s-3">
-          <NuxtLink :to="`/author/${author.name}`">
+          <NuxtLink v-if="author.img" :to="`/author/${author.name}`">
             <img
               v-if="author.img"
               :src="author.img"
@@ -15,7 +15,7 @@
           </NuxtLink>
           <dl class="text-sm font-medium leading-5 whitespace-no-wrap">
             <dt class="sr-only">Name</dt>
-            <dd class="text-gray-900">
+            <dd v-if="author.name" class="text-gray-900">
               <NuxtLink :to="`/author/${author.name}`"
                 >{{ author.name }}
               </NuxtLink>
@@ -50,7 +50,7 @@ export default {
   props: {
     author: {
       type: Object,
-      required: true
+      default: () => ({})
     },
     updatedAt: {
       type: String,
