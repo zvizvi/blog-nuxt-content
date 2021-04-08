@@ -2,12 +2,14 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.ltr {
-  direction: ltr;
-}
+@layer base {
+  .ltr {
+    direction: ltr;
+  }
 
-.rtl {
-  direction: rtl;
+  .rtl {
+    direction: rtl;
+  }
 }
 
 .nuxt-content-highlight {
