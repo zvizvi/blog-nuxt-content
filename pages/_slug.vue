@@ -23,7 +23,7 @@
           />
           <div class="xl:flex flex-row-reverse pb-16 xl:pb-20">
             <!-- content author component -->
-            <div class="flex-3 divide-y divide-gray-200 xl:pb-0">
+            <div class="flex-3 max-w-full divide-y divide-gray-200 xl:pb-0">
               <div class="prose max-w-none pt-6 pb-8">
                 <!-- content from markdown -->
                 <figure v-if="article.img">
@@ -36,7 +36,7 @@
                 <nuxt-content class="text-justify" :document="article" />
               </div>
             </div>
-            <footer class="flex-1 text-sm font-medium xl:me-6 leading-5">
+            <footer class="flex-1 min-w-[250px] text-sm xl:me-6 leading-5">
               <div class="xl:sticky top-20 divide-y divide-gray-200">
                 <author
                   :author="article.author"

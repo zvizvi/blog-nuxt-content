@@ -1,6 +1,6 @@
 <template>
   <div
-    class="block sm:flex xl:block flex-row-reverse flex-wrap justify-between"
+    class="block sm:flex xl:block flex-row-reverse flex-wrap justify-between font-medium"
   >
     <div v-if="next" class="mb-8">
       <h2

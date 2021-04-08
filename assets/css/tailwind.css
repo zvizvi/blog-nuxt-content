@@ -12,10 +12,49 @@
   }
 }
 
+.prose code {
+  @apply inline-block font-normal ltr;
+
+  padding: 2px 4px;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
 .nuxt-content-highlight {
   @apply relative ltr;
+  @apply max-w-[750px];
+}
+
+.nuxt-content-highlight ::selection {
+  background-color: #3297fd !important;
+  color: #fff !important;
+}
+
+.nuxt-content-highlight ::-moz-selection {
+  background-color: #3297fd !important;
+  color: #fff !important;
 }
 
 .nuxt-content-highlight .filename {
   @apply absolute right-0 text-gray-200 font-light z-10 mr-2 mt-1 text-sm;
+}
+
+.nuxt-content-highlight pre[class*="language-"] {
+  @apply whitespace-pre-wrap;
+}
+
+.prose ul > li,
+.prose ol > li {
+  @apply pe-0 ps-7;
+}
+
+.prose ul > li::before,
+.prose ol > li::before {
+  @apply start-1 end-auto;
 }

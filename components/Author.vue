@@ -15,7 +15,7 @@
           </NuxtLink>
           <dl class="text-sm font-medium leading-5 whitespace-no-wrap">
             <dt class="sr-only">Name</dt>
-            <dd v-if="author.name" class="text-gray-900">
+            <dd v-if="author.name" class="text-gray-900 font-medium">
               <NuxtLink :to="`/author/${author.name}`"
                 >{{ author.name }}
               </NuxtLink>
