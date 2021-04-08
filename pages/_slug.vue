@@ -3,66 +3,64 @@
     <TheHeader />
     <div class="flex-1 w-full max-w-3xl mx-auto px-6 xl:max-w-5xl lg:px-0">
       <main>
-        <article>
-          <header class="pt-6 xl:pb-8">
-            <div class="text-center">
-              <div>
-                <h1
-                  class="text-3xl leading-9 font-bold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
-                >
-                  {{ article.title }}
-                </h1>
-                <p class="mt-4 text-gray-500">{{ article.description }}</p>
-              </div>
+        <header class="pt-6 xl:pb-8">
+          <div class="text-center">
+            <div>
+              <h1
+                class="text-3xl leading-9 font-bold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
+                {{ article.title }}
+              </h1>
+              <p class="mt-4 text-gray-500">{{ article.description }}</p>
             </div>
-          </header>
-          <author
-            :author="article.author"
-            :updated-at="article.updatedAt"
-            class="xl:hidden pt-6 pb-1"
-          />
-          <div class="xl:flex flex-row-reverse pb-16 xl:pb-20">
-            <!-- content author component -->
-            <div class="flex-3 max-w-full divide-y divide-gray-200 xl:pb-0">
-              <div class="prose max-w-none pt-6 pb-8">
-                <!-- content from markdown -->
-                <figure v-if="article.img">
-                  <img
-                    :src="article.img"
-                    class="mx-auto w-full max-h-96 object-cover rounded-md"
-                  />
-                  <figcaption class="italic text-center"></figcaption>
-                </figure>
-                <nuxt-content class="text-justify" :document="article" />
-              </div>
-            </div>
-            <footer class="flex-1 min-w-[250px] text-sm xl:me-6 leading-5">
-              <div class="xl:sticky top-20 divide-y divide-gray-200">
-                <author
-                  :author="article.author"
-                  :updated-at="article.updatedAt"
-                  class="hidden xl:block pt-6 pb-10 xl:pt-6"
-                />
-                <!-- <AppSearchInput /> -->
-                <div v-if="article.tags" class="py-8">
-                  <span
-                    v-for="(tag, id) in article.tags"
-                    :key="id"
-                    class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
-                  >
-                    <NuxtLink :to="`/tag/${tags[tag].slug}`">{{
-                      tags[tag].name
-                    }}</NuxtLink>
-                  </span>
-                </div>
-                <div class="pt-8">
-                  <!-- prevNext component -->
-                  <PrevNext :prev="prev" :next="next" class="" />
-                </div>
-              </div>
-            </footer>
           </div>
-        </article>
+        </header>
+        <author
+          :author="article.author"
+          :updated-at="article.updatedAt"
+          class="xl:hidden pt-6 pb-1"
+        />
+        <div class="xl:flex flex-row-reverse pb-16 xl:pb-20">
+          <!-- content author component -->
+          <div class="flex-3 max-w-full divide-y divide-gray-200 xl:pb-0">
+            <article class="prose max-w-none pt-6 pb-8">
+              <!-- content from markdown -->
+              <figure v-if="article.img">
+                <img
+                  :src="article.img"
+                  class="mx-auto w-full max-h-96 object-cover rounded-md"
+                />
+                <figcaption class="italic text-center"></figcaption>
+              </figure>
+              <nuxt-content class="text-justify" :document="article" />
+            </article>
+          </div>
+          <footer class="flex-1 min-w-[250px] text-sm xl:me-6 leading-5">
+            <div class="xl:sticky top-20 divide-y divide-gray-200">
+              <author
+                :author="article.author"
+                :updated-at="article.updatedAt"
+                class="hidden xl:block pt-6 pb-10 xl:pt-6"
+              />
+              <!-- <AppSearchInput /> -->
+              <div v-if="article.tags" class="py-8">
+                <span
+                  v-for="(tag, id) in article.tags"
+                  :key="id"
+                  class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
+                >
+                  <NuxtLink :to="`/tag/${tags[tag].slug}`">{{
+                    tags[tag].name
+                  }}</NuxtLink>
+                </span>
+              </div>
+              <div class="pt-8">
+                <!-- prevNext component -->
+                <PrevNext :prev="prev" :next="next" class="" />
+              </div>
+            </div>
+          </footer>
+        </div>
       </main>
     </div>
 
