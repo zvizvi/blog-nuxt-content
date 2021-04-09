@@ -96,11 +96,6 @@ export default {
 
   @media (min-width: 640px) {
     grid-column: span 3;
-
-    /* full width for the last post */
-    &:nth-child(2n -1):last-child {
-      grid-column: span 6;
-    }
   }
 
   @media (min-width: 1024px) {
@@ -127,6 +122,12 @@ export default {
 
     &:nth-child(7n -3):last-child {
       grid-column: span 4;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    &:nth-child(2n -1):last-child {
+      grid-column: span 6;
     }
   }
 }
