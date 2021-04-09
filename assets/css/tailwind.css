@@ -12,6 +12,10 @@
   }
 }
 
+.prose a:link {
+  @apply hover:underline;
+}
+
 .prose code {
   @apply inline-block font-normal ltr;
 
