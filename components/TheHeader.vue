@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .app-header {
   @supports (backdrop-filter: blur(10px)) {
     background-color: rgba(255, 255, 255, 0.3);
