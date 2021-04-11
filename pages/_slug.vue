@@ -44,15 +44,16 @@
               />
               <!-- <AppSearchInput /> -->
               <div v-if="article.tags" class="py-8">
-                <span
+                <NuxtLink
                   v-for="(tag, id) in article.tags"
                   :key="id"
-                  class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
+                  :to="`/tag/${tags[tag].slug}`"
                 >
-                  <NuxtLink :to="`/tag/${tags[tag].slug}`">{{
-                    tags[tag].name
-                  }}</NuxtLink>
-                </span>
+                  <span
+                    class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear whitespace-nowrap"
+                    >{{ tags[tag].name }}</span
+                  >
+                </NuxtLink>
               </div>
               <div class="pt-8">
                 <!-- prevNext component -->

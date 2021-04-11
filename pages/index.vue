@@ -52,9 +52,9 @@
           :key="tag.slug"
           class="lg:flex-1 px-2 text-center"
         >
-          <NuxtLink :to="`/tag/${tag.slug}`" class="">
+          <NuxtLink :to="`/tag/${tag.slug}`">
             <span
-              class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
+              class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear whitespace-nowrap"
               >{{ tag.name }}</span
             >
           </NuxtLink>

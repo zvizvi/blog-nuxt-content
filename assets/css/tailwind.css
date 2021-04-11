@@ -35,6 +35,10 @@
   @apply whitespace-pre-wrap;
 }
 
+.prose {
+  @apply text-gray-900;
+}
+
 .prose a:link {
   @apply hover:underline;
 }
@@ -49,10 +53,15 @@
   margin-bottom: 1.25em;
 }
 
+.prose img {
+  display: inline;
+  margin: 0;
+}
+
 .prose code {
   @apply inline-block font-normal ltr;
 
-  padding: 2px 4px;
+  padding: 0 4px;
   color: #c7254e;
   background-color: #f9f2f4;
   border-radius: 4px;
