@@ -70,6 +70,14 @@ export default {
   markdownit: {
     runtime: true // Support `$md()`
   },
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const { time } = require('reading-time')(document.text);
+        document.readingTime = time;
+      }
+    }
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

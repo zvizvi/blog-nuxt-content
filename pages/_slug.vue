@@ -37,12 +37,21 @@
           </div>
           <footer class="flex-1 min-w-[250px] text-sm xl:me-6 leading-5">
             <div class="xl:sticky top-20 divide-y divide-gray-200">
-              <author
-                :author="article.author"
-                :updated-at="article.updatedAt"
-                class="hidden xl:block pt-6 pb-10 xl:pt-6"
-              />
-              <!-- <AppSearchInput /> -->
+              <div class="hidden xl:block pb-10 xl:pt-6">
+                <author
+                  :author="article.author"
+                  :updated-at="article.updatedAt"
+                />
+                <!-- <AppSearchInput /> -->
+                <div class="pt-4 space-y-1 text-gray-700 text-xs">
+                  <div v-if="article.readingTime !== undefined">
+                    <a>
+                      {{ Number((article.readingTime / 60000).toFixed(1)) }}
+                      min read</a
+                    >
+                  </div>
+                </div>
+              </div>
               <div v-if="article.tags" class="py-8">
                 <ul class="flex flex-wrap text-center gap-x-2">
                   <li
@@ -61,7 +70,7 @@
               </div>
               <div class="pt-8">
                 <!-- prevNext component -->
-                <PrevNext :prev="prev" :next="next" class="" />
+                <PrevNext :prev="prev" :next="next" />
               </div>
             </div>
           </footer>
