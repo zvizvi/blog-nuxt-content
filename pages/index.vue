@@ -46,15 +46,11 @@
           </NuxtLink>
         </li>
       </ul>
-      <ul class="flex flex-wrap mt-14 mb-4 text-center">
-        <li
-          v-for="tag of tags"
-          :key="tag.slug"
-          class="lg:flex-1 px-2 text-center"
-        >
+      <ul class="flex flex-wrap justify-between mt-14 mb-4 text-center gap-x-2">
+        <li v-for="tag of tags" :key="tag.slug" class="text-center">
           <NuxtLink :to="`/tag/${tag.slug}`">
             <span
-              class="text-xs inline-block me-2 mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear whitespace-nowrap"
+              class="text-xs inline-block mb-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-full font-medium text-ss rounded-fullborder border-light-border dark:border-dark-border transition-colors duration-300 ease-linear whitespace-nowrap"
               >{{ tag.name }}</span
             >
           </NuxtLink>
