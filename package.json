@@ -25,7 +25,7 @@
     "@nuxtjs/axios": "^5.13.1",
     "@tailwindcss/ui": "^0.7.2",
     "lodash": "^4.17.21",
-    "nuxt": "^2.15.4",
+    "nuxt": "^3.4.3",
     "prism-themes": "1.6.0"
   },
   "devDependencies": {
